@@ -1,0 +1,19 @@
+{
+  "tasks": [
+    {
+      "completed": true,
+      "title": "Learn Angular",
+      "id": "a2b1d49d-1b2a-45b3-8d54-e0166721af67"
+    },
+    {
+      "completed": true,
+      "title": "Learn Firebase",
+      "id": "4f7f699e-d7d7-49a6-a2f6-24233e1533f2"
+    },
+    {
+      "completed": false,
+      "title": "Learn NgRx",
+      "id": "05d6295d-3318-4778-ac48-6cedb1596719"
+    }
+  ]
+}
