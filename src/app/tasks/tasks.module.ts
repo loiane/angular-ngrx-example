@@ -1,5 +1,5 @@
+import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { TasksRoutingModule } from './tasks-routing.module';
 import { TasksService } from './services/tasks.service';
@@ -9,7 +9,7 @@ import { TasksListComponent } from './components/tasks-list/tasks-list.component
 import { TaskFormComponent } from './components/task-form/task-form.component';
 
 @NgModule({
-  imports: [CommonModule, TasksRoutingModule],
+  imports: [TasksRoutingModule, SharedModule],
   declarations: [
     TasksComponent,
     TaskItemComponent,
