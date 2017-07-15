@@ -9,11 +9,13 @@ import { TasksListComponent } from './components/tasks-list/tasks-list.component
 import { TaskFormComponent } from './components/task-form/task-form.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    TasksRoutingModule
+  imports: [CommonModule, TasksRoutingModule],
+  declarations: [
+    TasksComponent,
+    TaskItemComponent,
+    TasksListComponent,
+    TaskFormComponent
   ],
-  declarations: [TasksComponent, TaskItemComponent, TasksListComponent, TaskFormComponent],
   providers: [TasksService]
 })
-export class TasksModule { }
+export class TasksModule {}
