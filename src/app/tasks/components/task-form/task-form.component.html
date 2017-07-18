@@ -1,3 +1,10 @@
-<p>
-  task-form works!
-</p>
+<form (ngSubmit)="onSubmit()" novalidate>
+  <md-input-container class="example-full-width">
+    <input mdInput placeholder="What needs to be done?" type="text"
+      name="title"
+      [(ngModel)]="title"
+      (keyup.escape)="clear()"
+      autocomplete="off"
+      autofocus>
+  </md-input-container>
+</form>
