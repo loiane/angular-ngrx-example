@@ -1,3 +1,14 @@
-<p>
-  tasks works!
-</p>
+<md-card>
+  <app-task-form (createTask)="onCreateTask($event)"></app-task-form>
+    <md-spinner *ngIf="isLoading$ | async; else taskList" style="margin:0 auto;"></md-spinner>
+    <ng-template #taskList>
+      <app-tasks-list
+        [tasks]="tasks$"
+        (remove)="onRemoveTask($event)"
+        (edit)="onUpdateTask($event)">
+      </app-tasks-list>
+    </ng-template>
+  <div class="error-msg" *ngIf="error$ | async as error">
+    <p>{{ error }}</p>
+  </div>
+</md-card>
