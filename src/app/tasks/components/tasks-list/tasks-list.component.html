@@ -1,3 +1,7 @@
-<p>
-  tasks-list works!
-</p>
+<md-list>
+  <app-task-item *ngFor="let task of tasks$ | async"
+    [task]="task"
+    (remove)="onRemove(task)"
+    (edit)="onUpdate(task, $event)">
+  </app-task-item>
+</md-list>
