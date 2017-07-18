@@ -1,3 +1,14 @@
-<p>
-  task-item works!
-</p>
+<md-list-item class="list-item">
+  <md-checkbox color="primary" type="checkbox" [name]="task.id" [(ngModel)]="task.completed" (change)="onEdit()">
+    <span [class.task-completed]="task.completed">{{task.title}}</span>
+  </md-checkbox>
+  <span class="fill-remaining-space"></span>
+  <span>
+  <button md-mini-fab (click)="onRemove()">
+    <md-icon>delete_forever</md-icon>
+  </button>
+  <button md-mini-fab (click)="openEditDialog()" [disabled]="task.completed" color="primary">
+    <md-icon>mode_edit</md-icon>
+  </button>
+  </span>
+</md-list-item>
