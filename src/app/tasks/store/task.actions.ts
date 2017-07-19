@@ -21,21 +21,15 @@ export class TaskActions {
   };
 
   loadAction = ActionCreator.create(TaskActions.Types.LOAD);
-  loadSuccessAction = ActionCreator.create<any[]>(
-    TaskActions.Types.LOAD_SUCCESS
-  );
+  loadSuccessAction = ActionCreator.create<any[]>(TaskActions.Types.LOAD_SUCCESS);
 
   createAction = ActionCreator.create<any>(TaskActions.Types.CREATE);
-  createSuccessAction = ActionCreator.create<any>(
-    TaskActions.Types.CREATE_SUCCESS
-  );
+  createSuccessAction = ActionCreator.create<any>(TaskActions.Types.CREATE_SUCCESS);
 
   updateAction = ActionCreator.create<any>(TaskActions.Types.UPDATE);
-  updateSuccessAction = ActionCreator.create<any>(
-    TaskActions.Types.UPDATE_SUCCESS
-  );
+  updateSuccessAction = ActionCreator.create<any>(TaskActions.Types.UPDATE_SUCCESS);
 
-  removeAction = ActionCreator.create<{ id }>(TaskActions.Types.REMOVE);
+  removeAction = ActionCreator.create<{id}>(TaskActions.Types.REMOVE);
   removeSuccessAction = ActionCreator.create(TaskActions.Types.REMOVE_SUCCESS);
 
   errorAction = ActionCreator.create<any>(TaskActions.Types.ERROR);

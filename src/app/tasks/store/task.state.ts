@@ -1,15 +1,13 @@
-export interface TaskModuleState {
-  task: TaskState;
-}
-
 export interface TaskState {
-  tasks: any[];
-  isLoading: boolean;
-  error: any;
+    tasks: any[];
+    isLoading: boolean;
+    selectedTask: any;
+    error: any;
 }
 
 export const taskInitialState: TaskState = {
-  tasks: [],
-  isLoading: true,
-  error: null
+    tasks: [],
+    isLoading: true,
+    selectedTask: null,
+    error: null
 };
