@@ -6,6 +6,7 @@ export function taskReducer(
   state = taskInitialState,
   action: Action & { payload?: any }
 ): TaskState {
+
   switch (action.type) {
     case TaskActions.Types.LOAD: {
       return Object.assign({}, state, {
