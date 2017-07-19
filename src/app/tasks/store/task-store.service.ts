@@ -1,7 +1,7 @@
 import { TaskState } from './task.state';
 import { Injectable } from '@angular/core';
 import { Store, State } from '@ngrx/store';
-import { StoreService } from './../../store/store.service';
+import { StoreService } from './../../store/app-store.service';
 import { AppState } from './../../store/app.state';
 import { TaskActions } from './task.actions';
 import 'rxjs/add/operator/filter';
@@ -21,15 +21,15 @@ export class TaskStoreService extends StoreService {
   }
 
   dispatchCreateAction(record: any) {
-    this.store.dispatch(this.actions.createAction(record));
+    this.dispatchAction(this.actions.createAction(record));
   }
 
   dispatchUpdateAction(record: any)  {
-    this.store.dispatch(this.actions.updateAction(record));
+    this.dispatchAction(this.actions.updateAction(record));
   }
 
   dispatchRemoveAction(id) {
-    this.store.dispatch(this.actions.removeAction(id));
+    this.dispatchAction(this.actions.removeAction(id));
   }
 
   // sample of how to select piece of the state
