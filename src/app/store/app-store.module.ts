@@ -1,17 +1,20 @@
-import { reducers, initialState } from './app-state';
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 import { ActionCreator } from './action-creator';
+import { reducers } from './app.reducer';
+
 import { environment } from '../../environments/environment'; // Angular CLI environment
 
-// import AppStoreModule.forRoot() in the AppModule
+// import AppStoreModule.forRoot() in the AppModule after router module
 @NgModule({
   imports: [
-    StoreModule.forRoot({ reducers }, initialState),
+    StoreModule.forRoot(reducers),
     EffectsModule.forRoot([]),
-    // not working yet - @ngrx/platform v4
+    StoreRouterConnectingModule,
     !environment.production ? StoreDevtoolsModule.instrument({ maxAge: 50 }) : []
   ],
   exports: [StoreModule]

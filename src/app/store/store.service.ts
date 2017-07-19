@@ -1,5 +1,5 @@
 import { Store, Action } from '@ngrx/store';
-import { AppState } from './app-state';
+import { AppState } from './app.state';
 
 export abstract class StoreService {
   protected readonly STATE;

@@ -2,7 +2,7 @@ import { TaskState } from './task.state';
 import { Injectable } from '@angular/core';
 import { Store, State } from '@ngrx/store';
 import { StoreService } from './../../store/store.service';
-import { AppState } from './../../store/app-state';
+import { AppState } from './../../store/app.state';
 import { TaskActions } from './task.actions';
 import 'rxjs/add/operator/filter';
 
