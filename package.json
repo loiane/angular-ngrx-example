@@ -40,7 +40,7 @@
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~8.0.14",
     "body-parser": "^1.17.2",
-    "codelyzer": "~3.1.2",
+    "codelyzer": "~3.2.0",
     "express": "^4.15.3",
     "jasmine-core": "~2.8.0",
     "jasmine-spec-reporter": "~4.2.1",
