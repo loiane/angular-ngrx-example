@@ -6,64 +6,61 @@ import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/switchMap';
 
 import { Injectable } from '@angular/core';
-import { Actions, Effect, toPayload } from '@ngrx/effects';
+import { Actions, Effect } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
 import { TaskService } from './../services/task.service';
 import * as task from './task.actions';
+import { CreateAction, UpdateAction } from './task.actions';
 
 @Injectable()
 export class TaskEffects {
-
-  constructor(
-    private api: TaskService,
-    private actions$: Actions
-  ) {}
+  constructor(private api: TaskService, private actions$: Actions) {}
 
   @Effect()
-  loadAction$: Observable<Action> = this.actions$
-    .ofType(task.TaskActions.LOAD)
-    .map(toPayload)
+  loadAction$ = this.actions$
+    .ofType<task.LoadAction>(task.TaskActions.LOAD)
+    .map(action => action.payload)
     .switchMap(payload =>
       this.api
         .load()
         .map(res => new task.LoadSuccessAction(res))
         .catch(error => this.handleError(error))
-    ) as Observable<Action>;
+    );
 
   @Effect()
-  createAction$: Observable<Action> = this.actions$
-    .ofType(task.TaskActions.CREATE)
-    .map(toPayload)
+  createAction$ = this.actions$
+    .ofType<task.CreateAction>(task.TaskActions.CREATE)
+    .map(action => action.payload)
     .switchMap(payload =>
       this.api
         .create(payload)
         .map(res => new task.CreateSuccessAction(res))
         .catch(error => this.handleError(error))
-    ) as Observable<Action>;
+    );
 
   @Effect()
-  updateAction$: Observable<Action> = this.actions$
-    .ofType(task.TaskActions.UPDATE)
-    .map(toPayload)
+  updateAction$ = this.actions$
+    .ofType<task.UpdateAction>(task.TaskActions.UPDATE)
+    .map(action => action.payload)
     .switchMap(payload =>
       this.api
         .update(payload)
         .map(res => new task.UpdateSuccessAction(res))
         .catch(error => this.handleError(error))
-    ) as Observable<Action>;
+    );
 
   @Effect()
-  removeAction$: Observable<Action> = this.actions$
-    .ofType(task.TaskActions.REMOVE)
-    .map(toPayload)
+  removeAction$ = this.actions$
+    .ofType<task.RemoveAction>(task.TaskActions.REMOVE)
+    .map(action => action.payload)
     .switchMap(payload =>
       this.api
         .remove(payload.id)
         .map(res => new task.RemoveSuccessAction(res))
         .catch(error => this.handleError(error))
-    ) as Observable<Action>;
+    );
 
   private handleError(error) {
     return Observable.of(new task.ErrorAction(error));

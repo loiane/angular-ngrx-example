@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { StoreService } from './../../store/app-store.service';
-import { AppState } from './../../store/app.state';
+import { AppState } from './../../store/app.reducer';
 import * as task from './task.actions';
 import { TaskState } from './task.state';
 

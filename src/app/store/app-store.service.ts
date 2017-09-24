@@ -1,6 +1,6 @@
 import { Action, Store } from '@ngrx/store';
 
-import { AppState } from './app.state';
+import { AppState } from './app.reducer';
 
 export abstract class StoreService {
   protected readonly STATE;
