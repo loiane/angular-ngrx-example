@@ -3,7 +3,6 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
 import { taskReducer } from './task.reducer';
-import { TaskActions } from './task.actions';
 import { TaskEffects } from './task.effects';
 import { TaskStoreService } from './task-store.service';
 
@@ -14,6 +13,6 @@ import { TaskStoreService } from './task-store.service';
     EffectsModule.forFeature([TaskEffects])
   ],
   exports: [StoreModule, EffectsModule],
-  providers: [TaskActions, TaskStoreService]
+  providers: [TaskStoreService]
 })
 export class TaskStoreModule {}

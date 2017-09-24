@@ -10,62 +10,61 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/of';
 
 import { TaskService } from './../services/task.service';
-import { TaskActions } from './task.actions';
+import * as task from './task.actions';
 
 @Injectable()
 export class TaskEffects {
 
   constructor(
     private api: TaskService,
-    private actions: TaskActions,
     private actions$: Actions
   ) {}
 
   @Effect()
   loadAction$: Observable<Action> = this.actions$
-    .ofType(TaskActions.Types.LOAD)
+    .ofType(task.TaskActions.LOAD)
     .map(toPayload)
     .switchMap(payload =>
       this.api
         .load()
-        .map(res => this.actions.loadSuccessAction(res))
+        .map(res => new task.LoadSuccessAction(res))
         .catch(error => this.handleError(error))
     ) as Observable<Action>;
 
   @Effect()
   createAction$: Observable<Action> = this.actions$
-    .ofType(TaskActions.Types.CREATE)
+    .ofType(task.TaskActions.CREATE)
     .map(toPayload)
     .switchMap(payload =>
       this.api
         .create(payload)
-        .map(res => this.actions.createSuccessAction(res))
+        .map(res => new task.CreateSuccessAction(res))
         .catch(error => this.handleError(error))
     ) as Observable<Action>;
 
   @Effect()
   updateAction$: Observable<Action> = this.actions$
-    .ofType(TaskActions.Types.UPDATE)
+    .ofType(task.TaskActions.UPDATE)
     .map(toPayload)
     .switchMap(payload =>
       this.api
         .update(payload)
-        .map(res => this.actions.updateSuccessAction(res))
+        .map(res => new task.UpdateSuccessAction(res))
         .catch(error => this.handleError(error))
     ) as Observable<Action>;
 
   @Effect()
   removeAction$: Observable<Action> = this.actions$
-    .ofType(TaskActions.Types.REMOVE)
+    .ofType(task.TaskActions.REMOVE)
     .map(toPayload)
     .switchMap(payload =>
       this.api
         .remove(payload.id)
-        .map(res => this.actions.removeSuccessAction(res))
+        .map(res => new task.RemoveSuccessAction(res))
         .catch(error => this.handleError(error))
     ) as Observable<Action>;
 
   private handleError(error) {
-    return Observable.of(this.actions.errorAction(error));
+    return Observable.of(new task.ErrorAction(error));
   }
 }

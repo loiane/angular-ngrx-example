@@ -1,36 +1,39 @@
+import { Action } from '@ngrx/store';
+import { Task } from './../model/task';
 import { Injectable } from '@angular/core';
-import { ActionCreator } from '../../store/action-creator';
-import { type } from '../../store/util';
+import { NgRxAction } from '../../store/ngrx-action';
 
-@Injectable()
-export class TaskActions {
-  static Types = {
-    LOAD: type('[Task] LOAD Requested'),
-    LOAD_SUCCESS: type('[Task] LOAD Success'),
-
-    CREATE: type('[Task] CREATE Requested'),
-    CREATE_SUCCESS: type('[Task] CREATE Success'),
-
-    UPDATE: type('[Task] UPDATE Requested'),
-    UPDATE_SUCCESS: type('[Task] UPDATE Success'),
-
-    REMOVE: type('[Task] REMOVE Requested'),
-    REMOVE_SUCCESS: type('[Task] REMOVE Success'),
-
-    ERROR: type('[Task] Error')
-  };
-
-  loadAction = ActionCreator.create(TaskActions.Types.LOAD);
-  loadSuccessAction = ActionCreator.create<any[]>(TaskActions.Types.LOAD_SUCCESS);
-
-  createAction = ActionCreator.create<any>(TaskActions.Types.CREATE);
-  createSuccessAction = ActionCreator.create<any>(TaskActions.Types.CREATE_SUCCESS);
-
-  updateAction = ActionCreator.create<any>(TaskActions.Types.UPDATE);
-  updateSuccessAction = ActionCreator.create<any>(TaskActions.Types.UPDATE_SUCCESS);
-
-  removeAction = ActionCreator.create<{id}>(TaskActions.Types.REMOVE);
-  removeSuccessAction = ActionCreator.create(TaskActions.Types.REMOVE_SUCCESS);
-
-  errorAction = ActionCreator.create<any>(TaskActions.Types.ERROR);
+export enum TaskActions {
+  LOAD = '[Task] LOAD Requested',
+  LOAD_SUCCESS = '[Task] LOAD Success',
+  CREATE = '[Task] CREATE Requested',
+  CREATE_SUCCESS = '[Task] CREATE Success',
+  UPDATE = '[Task] UPDATE Requested',
+  UPDATE_SUCCESS = '[Task] UPDATE Success',
+  REMOVE = '[Task] REMOVE Requested',
+  REMOVE_SUCCESS = '[Task] REMOVE Success',
+  ERROR = '[Task] Error'
 }
+
+export class LoadAction extends NgRxAction<any> { type = TaskActions.LOAD; }
+export class LoadSuccessAction extends NgRxAction<Task[]> { type = TaskActions.LOAD_SUCCESS; }
+
+export class CreateAction extends NgRxAction<any> { type = TaskActions.CREATE; }
+export class CreateSuccessAction extends NgRxAction<Task> { type = TaskActions.CREATE_SUCCESS; }
+
+export class UpdateAction extends NgRxAction<Task> { type = TaskActions.UPDATE; }
+export class UpdateSuccessAction extends NgRxAction<Task> { type = TaskActions.UPDATE_SUCCESS; }
+
+export class RemoveAction extends NgRxAction<{id}> { type = TaskActions.REMOVE; }
+export class RemoveSuccessAction extends NgRxAction<Task> { type = TaskActions.REMOVE_SUCCESS; }
+
+export class ErrorAction extends NgRxAction<any> { type = TaskActions.ERROR; }
+
+export type TaskAction =
+  LoadAction | LoadSuccessAction |
+  CreateAction | CreateSuccessAction |
+  UpdateAction | UpdateSuccessAction |
+  RemoveAction | RemoveSuccessAction |
+  ErrorAction;
+
+
