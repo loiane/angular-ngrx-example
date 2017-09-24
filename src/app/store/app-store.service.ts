@@ -1,4 +1,5 @@
-import { Store, Action } from '@ngrx/store';
+import { Action, Store } from '@ngrx/store';
+
 import { AppState } from './app.state';
 
 export abstract class StoreService {

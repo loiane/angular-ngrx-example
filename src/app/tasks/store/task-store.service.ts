@@ -1,10 +1,12 @@
-import { TaskState } from './task.state';
+import 'rxjs/add/operator/filter';
+
 import { Injectable } from '@angular/core';
-import { Store, State } from '@ngrx/store';
+import { Store } from '@ngrx/store';
+
 import { StoreService } from './../../store/app-store.service';
 import { AppState } from './../../store/app.state';
 import * as task from './task.actions';
-import 'rxjs/add/operator/filter';
+import { TaskState } from './task.state';
 
 @Injectable()
 export class TaskStoreService extends StoreService {

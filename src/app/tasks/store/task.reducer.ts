@@ -1,6 +1,5 @@
-import { Action } from '@ngrx/store';
-import { TaskState, taskInitialState } from './task.state';
-import { TaskActions, TaskAction } from './task.actions';
+import { TaskAction, TaskActions } from './task.actions';
+import { taskInitialState, TaskState } from './task.state';
 
 export function taskReducer(
   state = taskInitialState,

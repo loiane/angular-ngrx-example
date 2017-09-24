@@ -1,7 +1,5 @@
-import { Action } from '@ngrx/store';
-import { Task } from './../model/task';
-import { Injectable } from '@angular/core';
 import { NgRxAction } from '../../store/ngrx-action';
+import { Task } from './../model/task';
 
 export enum TaskActions {
   LOAD = '[Task] LOAD Requested',

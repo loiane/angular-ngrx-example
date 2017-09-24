@@ -14,7 +14,7 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    AppStoreModule.forRoot()
+    AppStoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
