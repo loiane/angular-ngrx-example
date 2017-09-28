@@ -1,9 +1,11 @@
-import { Task } from './../../model/task';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+
+import { Task } from './../../model/task';
 
 @Component({
   selector: 'app-tasks-list',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './tasks-list.component.html'
 })
 export class TasksListComponent {

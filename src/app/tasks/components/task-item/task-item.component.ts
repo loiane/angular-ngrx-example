@@ -1,11 +1,13 @@
-import { MdDialogRef } from '@angular/material/material';
-import { TaskEditDialogComponent } from './../task-edit-dialog/task-edit-dialog.component';
-import { Task } from './../../model/task';
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { MdDialog } from '@angular/material';
+import { MdDialogRef } from '@angular/material/material';
+
+import { Task } from './../../model/task';
+import { TaskEditDialogComponent } from './../task-edit-dialog/task-edit-dialog.component';
 
 @Component({
   selector: 'app-task-item',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './task-item.component.html',
   styleUrls: ['./task-item.component.scss']
 })
