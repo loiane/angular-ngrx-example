@@ -1,37 +1,28 @@
-import 'rxjs/add/operator/filter';
-
 import { Injectable } from '@angular/core';
 import { createFeatureSelector, createSelector, Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Rx';
 
 import { StoreService } from './../../store/app-store.service';
 import { AppState } from './../../store/app.reducer';
 import * as task from './task.actions';
-import { taskAdapter, TaskState } from './task.state';
+import * as state from './task.state';
 
 @Injectable()
 export class TaskStoreService extends StoreService {
+  private tasksState = createFeatureSelector<state.TaskState>('task');
 
-  protected readonly STATE = 'task';
+  private selectors = state.taskAdapter.getSelectors(this.tasksState);
 
-  private tasksState = createFeatureSelector<TaskState>('task');
+  private selectCurrentTaskId = createSelector(
+    this.tasksState,
+    state.selectedTaskId
+  );
+  private isLoading = createSelector(this.tasksState, state.selectIsLoading);
+  private error = createSelector(this.tasksState, state.selectError);
 
-  private selectors = taskAdapter.getSelectors(this.tasksState);
-  private selectedTaskId = (state: TaskState) => state.selectedTaskId;
-
-  // tslint:disable-next-line:member-ordering
-  private selectCurrentTaskId = createSelector(this.tasksState, this.selectedTaskId);
-
-  private selectIsLoading = (state: TaskState) => state.isLoading;
-  // tslint:disable-next-line:member-ordering
-  private isLoading = createSelector(this.tasksState, this.selectIsLoading);
-
-  private selectError = (state: TaskState) => state.error;
-  // tslint:disable-next-line:member-ordering
-  private error = createSelector(this.tasksState, this.selectError);
-
-  constructor(
-    protected store: Store<AppState>
-  ) { super(); }
+  constructor(protected store: Store<AppState>) {
+    super();
+  }
 
   dispatchLoadAction() {
     this.dispatchAction(new task.LoadAction());
@@ -41,7 +32,7 @@ export class TaskStoreService extends StoreService {
     this.dispatchAction(new task.CreateAction(record));
   }
 
-  dispatchUpdateAction(record: any)  {
+  dispatchUpdateAction(record: any) {
     this.dispatchAction(new task.UpdateAction(record));
   }
 
@@ -49,7 +40,6 @@ export class TaskStoreService extends StoreService {
     this.dispatchAction(new task.RemoveAction(id));
   }
 
-  // sample of how to select piece of the state
   getTasks() {
     return this.store.select(this.selectors.selectAll);
   }
@@ -62,7 +52,15 @@ export class TaskStoreService extends StoreService {
     return this.store.select(this.error);
   }
 
-  findById(record: {id}) {
+  findById(record: { id }) {
     return this.getTasks()[record['id']];
+  }
+
+  getCurrentTaskSelected() {
+    return Observable.combineLatest(
+      this.getTasks(),
+      this.store.select(this.selectCurrentTaskId),
+      (tasks, selectedId) => selectedId.map(id => tasks[id])
+    );
   }
 }

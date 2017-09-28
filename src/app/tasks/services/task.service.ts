@@ -1,37 +1,27 @@
-import { Task } from './../model/task';
-import { Observable } from 'rxjs/Observable';
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+import { Task } from './../model/task';
 
 @Injectable()
 export class TaskService {
-  readonly API_BASE_URL = 'http://localhost:3001';
-  readonly API_TASKS_URL = `${this.API_BASE_URL}/tasks`;
+  private readonly API_TASKS_URL = `http://localhost:3001/tasks`;
 
   constructor(private http: HttpClient) {}
 
-  load(): Observable<Task[]> {
-    return this.http
-      .get(this.API_TASKS_URL) as Observable<Task[]>;
+  load() {
+    return this.http.get<Task[]>(this.API_TASKS_URL);
   }
 
-  create(body: Task): Observable<Task> {
-    return this.http
-      .post(this.API_TASKS_URL, this.getBody(body)) as Observable<Task>;
+  create(record: Task) {
+    return this.http.post<Task>(this.API_TASKS_URL, record);
   }
 
-  update(body: Task): Observable<Task> {
-    return this.http
-      .put(`${this.API_TASKS_URL}/${body.id}`, this.getBody(body)) as Observable<Task>;
+  update(record: Task) {
+    return this.http.put<Task>(`${this.API_TASKS_URL}/${record.id}`, record);
   }
 
-  remove(taskId: string): Observable<Task> {
-    return this.http
-      .delete(`${this.API_TASKS_URL}/${taskId}`) as Observable<Task>;
-  }
-
-  private getBody(body: any) {
-    // return JSON.stringify(body)
-    return body; // node.js does not need stringify
+  remove(id: string) {
+    return this.http.delete<Task>(`${this.API_TASKS_URL}/${id}`);
   }
 }

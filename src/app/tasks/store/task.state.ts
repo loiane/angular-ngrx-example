@@ -18,3 +18,7 @@ export const taskInitialState: TaskState = taskAdapter.getInitialState({
   selectedTaskId: null,
   error: null
 });
+
+export const selectedTaskId = (state: TaskState) => state.selectedTaskId;
+export const selectIsLoading = (state: TaskState) => state.isLoading;
+export const selectError = (state: TaskState) => state.error;

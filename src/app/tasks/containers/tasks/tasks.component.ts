@@ -1,7 +1,8 @@
-import { TaskStoreService } from './../../store/task-store.service';
-import { Task } from './../../model/task';
-import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+
+import { Task } from '../../model/task';
+import { TaskStoreService } from '../../store/task-store.service';
 
 @Component({
   selector: 'app-tasks',
