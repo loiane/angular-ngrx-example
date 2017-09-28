@@ -3,10 +3,13 @@
 const express = require('express');
 const low = require('lowdb');
 const path = require('path');
-const storage = require('lowdb/lib/storages/file-sync');
+const storage = require('lowdb/adapters/FileSync');
 const uuid = require('node-uuid');
 
-const db = low(path.join(__dirname, 'db.json'), {storage});
+const adapter = new storage(path.join(__dirname, 'db.json'));
+const db = low(adapter);
+
+// const db = low(path.join(__dirname, 'db.json'), {storage});
 //db.set('tasks', []).value(); //comment this line to load sample tasks from db
 
 const router = new express.Router();
