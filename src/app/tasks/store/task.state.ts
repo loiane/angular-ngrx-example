@@ -1,13 +1,20 @@
-export interface TaskState {
-    tasks: any[];
+import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
+
+import { Task } from './../model/task';
+
+export interface TaskState extends EntityState<Task> {
     isLoading: boolean;
-    selectedTask: any;
+    selectedTaskId: any;
     error: any;
 }
 
-export const taskInitialState: TaskState = {
-    tasks: [],
-    isLoading: true,
-    selectedTask: null,
-    error: null
-};
+export const taskAdapter: EntityAdapter<Task> = createEntityAdapter<Task>({
+  selectId: (task: Task) => task.id,
+  sortComparer: false,
+});
+
+export const taskInitialState: TaskState = taskAdapter.getInitialState({
+  isLoading: true,
+  selectedTaskId: null,
+  error: null
+});

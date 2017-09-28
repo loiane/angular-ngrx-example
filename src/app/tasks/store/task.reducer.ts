@@ -1,5 +1,5 @@
 import { TaskAction, TaskActions } from './task.actions';
-import { taskInitialState, TaskState } from './task.state';
+import { taskAdapter, taskInitialState, TaskState } from './task.state';
 
 export function taskReducer(
   state = taskInitialState,
@@ -17,36 +17,32 @@ export function taskReducer(
     }
 
     case TaskActions.LOAD_SUCCESS: {
-      return Object.assign({}, state, {
+      return {
+        ...taskAdapter.addMany(action.payload, state),
         isLoading: false,
-        error: null,
-        tasks: action.payload
-      });
+        error: null
+      };
     }
 
     case TaskActions.CREATE_SUCCESS: {
-      return Object.assign({}, state, {
-        error: null,
-        tasks: [...state.tasks, action.payload]
-      });
+      return {
+        ...taskAdapter.addOne(action.payload, state),
+        error: null
+      };
     }
 
     case TaskActions.UPDATE_SUCCESS: {
-      return Object.assign({}, state, {
-        error: null,
-        tasks: state.tasks.map((task: { id: any }) => {
-          return task.id === action.payload.id ? action.payload : task;
-        })
-      });
+      return {
+        ...taskAdapter.updateOne({id: action.payload.id, changes: action.payload}, state),
+        error: null
+      };
     }
 
     case TaskActions.REMOVE_SUCCESS: {
-      return Object.assign({}, state, {
+      return {
+        ...taskAdapter.removeOne(action.payload.id, state),
         error: null,
-        tasks: state.tasks.filter((task: { id: any }) => {
-          return task.id !== action.payload.id;
-        })
-      });
+      };
     }
 
     case TaskActions.ERROR: {
