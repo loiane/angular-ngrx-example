@@ -22,7 +22,7 @@
     "@angular/material": "^2.0.0-beta.11",
     "@angular/platform-browser": "^4.4.3",
     "@angular/platform-browser-dynamic": "^4.4.3",
-    "@angular/router": "^4.4.3",
+    "@angular/router": "^5.0.0",
     "@ngrx/effects": "^4.0.5",
     "@ngrx/entity": "github:ngrx/entity-builds",
     "@ngrx/router-store": "^4.0.4",
