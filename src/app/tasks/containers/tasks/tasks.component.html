@@ -1,6 +1,6 @@
-<md-card>
+<mat-card>
   <app-task-form (createTask)="onCreateTask($event)"></app-task-form>
-    <md-spinner *ngIf="isLoading$ | async; else taskList" style="margin:0 auto;"></md-spinner>
+    <mat-spinner *ngIf="isLoading$ | async; else taskList" style="margin:0 auto;"></mat-spinner>
     <ng-template #taskList>
       <app-tasks-list
         [tasks]="tasks$"
@@ -11,4 +11,4 @@
   <div class="error-msg" *ngIf="error$ | async as error">
     <p>{{ error }}</p>
   </div>
-</md-card>
+</mat-card>

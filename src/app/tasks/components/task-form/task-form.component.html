@@ -1,10 +1,10 @@
 <form (ngSubmit)="onSubmit()" novalidate>
-  <md-input-container class="example-full-width">
-    <input mdInput placeholder="What needs to be done?" type="text"
+  <mat-input-container class="example-full-width">
+    <input matInput placeholder="What needs to be done?" type="text"
       name="title"
       [(ngModel)]="title"
       (keyup.escape)="clear()"
       autocomplete="off"
       autofocus>
-  </md-input-container>
+  </mat-input-container>
 </form>

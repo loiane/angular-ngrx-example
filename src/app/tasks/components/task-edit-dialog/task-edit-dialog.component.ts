@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MdDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-task-edit-dialog',
@@ -9,5 +9,5 @@ export class TaskEditDialogComponent {
 
   public title: string;
 
-  constructor(public dialogRef: MdDialogRef<TaskEditDialogComponent>) {}
+  constructor(public dialogRef: MatDialogRef<TaskEditDialogComponent>) {}
 }

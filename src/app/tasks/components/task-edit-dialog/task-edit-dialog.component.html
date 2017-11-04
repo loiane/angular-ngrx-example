@@ -1,11 +1,11 @@
 <form>
-  <md-input-container class="example-full-width">
-    <input mdInput placeholder="What needs to be done?" type="text"
+  <mat-input-container class="example-full-width">
+    <input matInput placeholder="What needs to be done?" type="text"
       name="title"
       [(ngModel)]="title"
       autocomplete="off"
       autofocus>
-  </md-input-container>
+  </mat-input-container>
 </form>
-<button type="button" md-raised-button (click)="dialogRef.close(title)" color="primary">Update</button>
-<button type="button" md-button (click)="this.dialogRef.close()">Cancel</button>
+<button type="button" mat-raised-button (click)="dialogRef.close(title)" color="primary">Update</button>
+<button type="button" mat-button (click)="this.dialogRef.close()">Cancel</button>

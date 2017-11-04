@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { MdDialog } from '@angular/material';
-import { MdDialogRef } from '@angular/material/material';
+import { MatDialog } from '@angular/material';
+import { MatDialogRef } from '@angular/material/material';
 
 import { Task } from './../../model/task';
 import { TaskEditDialogComponent } from './../task-edit-dialog/task-edit-dialog.component';
@@ -16,7 +16,7 @@ export class TaskItemComponent {
   @Output() remove: EventEmitter<any> = new EventEmitter(false);
   @Output() edit: EventEmitter<any> = new EventEmitter(false);
 
-  constructor(private dialog: MdDialog) {}
+  constructor(private dialog: MatDialog) {}
 
   onRemove() {
     this.remove.emit();
@@ -30,9 +30,8 @@ export class TaskItemComponent {
     });
   }
 
-
   openEditDialog() {
-    let dialogRef: MdDialogRef<TaskEditDialogComponent>;
+    let dialogRef: MatDialogRef<TaskEditDialogComponent>;
     dialogRef = this.dialog.open(TaskEditDialogComponent);
     dialogRef.componentInstance.title = this.task.title;
     dialogRef.afterClosed().subscribe(res => this.onEdit(res));

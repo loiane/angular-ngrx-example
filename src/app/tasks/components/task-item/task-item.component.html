@@ -1,14 +1,14 @@
-<md-list-item class="list-item">
-  <md-checkbox color="primary" type="checkbox" [name]="task.id" [(ngModel)]="task.completed" (change)="onEdit()">
+<mat-list-item class="list-item">
+  <mat-checkbox color="primary" type="checkbox" [name]="task.id" [(ngModel)]="task.completed" (change)="onEdit()">
     <span [class.task-completed]="task.completed">{{task.title}}</span>
-  </md-checkbox>
+  </mat-checkbox>
   <span class="fill-remaining-space"></span>
   <span>
-  <button md-mini-fab (click)="onRemove()">
-    <md-icon>delete_forever</md-icon>
+  <button mat-mini-fab (click)="onRemove()">
+    <mat-icon>delete_forever</mat-icon>
   </button>
-  <button md-mini-fab (click)="openEditDialog()" [disabled]="task.completed" color="primary">
-    <md-icon>mode_edit</md-icon>
+  <button mat-mini-fab (click)="openEditDialog()" [disabled]="task.completed" color="primary">
+    <mat-icon>mode_edit</mat-icon>
   </button>
   </span>
-</md-list-item>
+</mat-list-item>
