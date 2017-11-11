@@ -14,8 +14,8 @@ import {
 } from '@angular/material';
 
 @NgModule({
-  imports: [CommonModule],
   exports: [
+    CommonModule,
     HttpClientModule,
     MatToolbarModule,
     MatCardModule,
