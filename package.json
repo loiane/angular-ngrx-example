@@ -57,7 +57,7 @@
     "path": "^0.12.7",
     "protractor": "~5.2.0",
     "ts-node": "~3.3.0",
-    "tslint": "~5.8.0",
+    "tslint": "~5.9.0",
     "typescript": "~2.6.1",
     "winston": "^2.4.0"
   }
