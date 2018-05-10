@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { createFeatureSelector, createSelector, Store } from '@ngrx/store';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/combineLatest';
+import { combineLatest } from 'rxjs';
 
 import { StoreService } from './../../store/app-store.service';
 import { AppState } from './../../store/app.reducer';
@@ -58,7 +57,7 @@ export class TaskStoreService extends StoreService {
   }
 
   getCurrentTaskSelected() {
-    return Observable.combineLatest(
+    return combineLatest(
       this.getTasks(),
       this.store.select(this.selectCurrentTaskId),
       (tasks, selectedId) => selectedId.map(id => tasks[id])
