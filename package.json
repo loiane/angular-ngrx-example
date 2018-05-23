@@ -25,7 +25,7 @@
     "@angular/router": "^6.0.0",
     "@ngrx/effects": "6.0.0-beta.1",
     "@ngrx/entity": "6.0.0-beta.1",
-    "@ngrx/router-store": "6.0.0-beta.1",
+    "@ngrx/router-store": "6.0.0",
     "@ngrx/store": "6.0.0-beta.1",
     "@ngrx/store-devtools": "6.0.0-beta.1",
     "core-js": "^2.5.4",
