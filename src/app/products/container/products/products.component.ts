@@ -1,6 +1,11 @@
+import { error } from './../../store/products.selectors';
+import { Product } from './../../models/product';
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as fromStore from '../../store/product.reducer';
+import * as fromActions from '../../store/product.actions';
+import * as fromSelector from '../../store/products.selectors';
 
 @Component({
   selector: 'app-products',
@@ -9,9 +14,20 @@ import * as fromStore from '../../store/product.reducer';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(private store: Store) { }
+  isLoading$: Observable<boolean>;
+  error$: Observable<string | null>;
+  products$: Observable<Product[]>;
 
-  ngOnInit(): void {
+  constructor(private store: Store<fromStore.ProductState>) {
+    this.store.dispatch(fromActions.loadProducts({products: []}));
+    this.products$ = this.store.select(fromSelector.products);
+    this.isLoading$ = this.store.select(fromSelector.isLoading);
+    this.error$ = this.store.select(fromSelector.error);
+    // this.store.select(state => state).subscribe(data => {
+    //   console.log('data', data);
+    // });
   }
+
+  ngOnInit(): void { }
 
 }

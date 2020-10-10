@@ -15,7 +15,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
     CommonModule,
     ProductsRoutingModule,
     StoreModule.forFeature(fromProduct.productsFeatureKey, fromProduct.reducer),
-    EffectsModule.forFeature([ProductEffects])
+    // EffectsModule.forFeature([ProductEffects])
   ]
 })
 export class ProductsModule { }

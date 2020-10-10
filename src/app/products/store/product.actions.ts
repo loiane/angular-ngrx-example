@@ -13,18 +13,8 @@ export const addProduct = createAction(
   props<{ product: Product }>()
 );
 
-export const upsertProduct = createAction(
-  '[Product/API] Upsert Product',
-  props<{ product: Product }>()
-);
-
 export const addProducts = createAction(
   '[Product/API] Add Products',
-  props<{ products: Product[] }>()
-);
-
-export const upsertProducts = createAction(
-  '[Product/API] Upsert Products',
   props<{ products: Product[] }>()
 );
 
