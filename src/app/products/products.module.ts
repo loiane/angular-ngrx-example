@@ -1,14 +1,15 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { ProductsRoutingModule } from './products-routing.module';
-import { StoreModule } from '@ngrx/store';
-import * as fromProduct from './store/product.reducer';
+import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+
+import { ProductsComponent } from './container/products/products.component';
+import { ProductsRoutingModule } from './products-routing.module';
 import { ProductEffects } from './store/product.effects';
+import * as fromProduct from './store/product.reducer';
 
 @NgModule({
-  declarations: [],
+  declarations: [ProductsComponent],
   imports: [
     CommonModule,
     ProductsRoutingModule,
