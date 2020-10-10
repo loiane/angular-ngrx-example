@@ -3,11 +3,12 @@ import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
+import { SharedModule } from './../shared/shared.module';
+import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductsComponent } from './container/products/products.component';
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductEffects } from './store/product.effects';
 import * as fromProduct from './store/product.reducer';
-import { ProductListComponent } from './components/product-list/product-list.component';
 
 @NgModule({
   declarations: [ProductsComponent, ProductListComponent],
@@ -15,7 +16,8 @@ import { ProductListComponent } from './components/product-list/product-list.com
     CommonModule,
     ProductsRoutingModule,
     StoreModule.forFeature(fromProduct.productsFeatureKey, fromProduct.reducer),
-    // EffectsModule.forFeature([ProductEffects])
+    EffectsModule.forFeature([ProductEffects]),
+    SharedModule
   ]
 })
 export class ProductsModule { }
