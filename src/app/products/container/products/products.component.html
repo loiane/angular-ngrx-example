@@ -6,17 +6,17 @@
         <mat-card class="pa-0">
           <div class="media-grid">
             <figure style="background-color:white; height: 245px;">
-              <img src="assets/images/{{ product.id }}.jpg" height="245px">
+              <img src="assets/images/{{ product.image }}.jpg" height="245px">
             </figure>
           </div>
           <mat-card-content class="pa-1">
             <div fxLayout="row" fxLayoutAlign="center center">
               <div fxFlex>
                 <p class="ma-0">{{ product.name }}</p>
-                <p class="ma-0 pa-0 text-md">{{ product.name }}</p>
+                <p class="ma-0 pa-0 text-md">{{ product.description }}</p>
               </div>
               <div class="mat-text-primary text-xl">
-                <span> $ {{ product.name }}</span>
+                <span> $ {{ product.price }}</span>
               </div>
               <button mat-icon-button color="accent">
                 <mat-icon>add_shopping_cart</mat-icon>

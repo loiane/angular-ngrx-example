@@ -3,6 +3,11 @@ import { createAction, props } from '@ngrx/store';
 
 import { Product } from '../models/product';
 
+export const requestLoadProducts = createAction(
+  '[Product/API] Request Load Products',
+  props<{}>()
+);
+
 export const loadProducts = createAction(
   '[Product/API] Load Products',
   props<{ products: Product[] }>()

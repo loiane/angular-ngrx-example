@@ -19,7 +19,7 @@ export class ProductsComponent implements OnInit {
   products$: Observable<Product[]>;
 
   constructor(private store: Store<fromStore.ProductState>) {
-    this.store.dispatch(fromActions.loadProducts({products: [{id: 1, name: '1'},{id: 2, name: '2'}]}));
+    this.store.dispatch(fromActions.requestLoadProducts({}));
     this.products$ = this.store.select(fromSelector.products);
     this.isLoading$ = this.store.select(fromSelector.isLoading);
     this.error$ = this.store.select(fromSelector.error);

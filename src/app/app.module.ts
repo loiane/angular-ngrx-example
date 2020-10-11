@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
@@ -10,6 +8,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HeaderModule } from './header/header.module';
 
 @NgModule({
   declarations: [
@@ -22,8 +21,7 @@ import { AppComponent } from './app.component';
     StoreModule.forRoot({}, {}),
     EffectsModule.forRoot([]),
     BrowserAnimationsModule,
-    MatToolbarModule,
-    MatIconModule
+    HeaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

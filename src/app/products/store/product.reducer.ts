@@ -34,6 +34,12 @@ export const reducer = createReducer(
         ...state,
         isLoading: false
     })
+  ),
+  on(ProductActions.requestLoadProducts,
+    (state, action) => adapter.setAll([], {
+      ...state,
+      isLoading: true
+  })
   )
 );
 

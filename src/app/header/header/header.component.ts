@@ -1,20 +1,22 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { of, Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged, filter, map, takeUntil } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, filter, takeUntil, map } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-search-form',
-  templateUrl: './search-form.component.html',
-  styleUrls: ['./search-form.component.scss']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss']
 })
-export class SearchFormComponent implements OnInit, OnDestroy {
+export class HeaderComponent implements OnInit, OnDestroy {
 
   searchQuery = '';
-  private destroySub = new Subject();
+  // cartCount$: Observable<number>;
+  destroySub = new Subject();
 
   constructor() { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+  }
 
   watchSearch(): void {
     of(this.searchQuery)

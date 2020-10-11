@@ -1,0 +1,43 @@
+<mat-toolbar class="main-header" color="primary">
+  <button mat-icon-button [routerLink]="['/']">
+    <mat-icon>local_cafe</mat-icon>
+  </button>
+  <div class="branding">
+    NgRx Cafe
+  </div>
+  <div class="search-bar" fxFlex>
+    <form class="search-form">
+      <mat-icon>search</mat-icon>
+      <input type="text" placeholder="Search" autofocus="true"
+        [(ngModel)]="searchQuery" name="productSearch" (input)="watchSearch()"/>
+    </form>
+  </div>
+  <button mat-icon-button class="ml-xs overflow-visible"
+  [matMenuTriggerFor]="cart" mat-icon-button>
+    <mat-icon>shopping_cart</mat-icon>
+    <span class="notification-label">{{ "" }}</span>
+  </button>
+  <mat-menu #cart="matMenu" x-position="before">
+    <button mat-menu-item [routerLink]="['/checkout']">
+      <mat-icon>settings</mat-icon>
+      Checkout
+    </button>
+  </mat-menu>
+  <button [matMenuTriggerFor]="user" mat-icon-button class="ml-xs">
+    <mat-icon>person</mat-icon>
+  </button>
+  <mat-menu #user="matMenu" x-position="before">
+    <button mat-menu-item>
+      <mat-icon>settings</mat-icon>
+      Manage Products
+    </button>
+    <button mat-menu-item>
+      <mat-icon>account_box</mat-icon>
+      Profile
+    </button>
+    <button mat-menu-item>
+      <mat-icon>exit_to_app</mat-icon>
+      Sign Out
+    </button>
+  </mat-menu>
+</mat-toolbar>
