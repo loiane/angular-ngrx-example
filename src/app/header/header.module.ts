@@ -5,6 +5,8 @@ import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../shared/shared.module';
 import { HeaderComponent } from './header/header.component';
+import { StoreModule } from '@ngrx/store';
+import * as fromHeader from './store/header.reducer';
 
 @NgModule({
   declarations: [HeaderComponent],
@@ -12,7 +14,8 @@ import { HeaderComponent } from './header/header.component';
     CommonModule,
     RouterModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    StoreModule.forFeature(fromHeader.headerFeatureKey, fromHeader.reducer)
   ],
   exports: [HeaderComponent]
 })

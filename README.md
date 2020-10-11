@@ -41,4 +41,9 @@ ng generate @ngrx/schematics:entity Product --flat false --module products.modul
 ng generate @ngrx/schematics:effect store/Product --module products.module.ts --api true
 ng generate @ngrx/schematics:container Products --state store/product.reducer.ts --stateInterface ProductState
 ng generate @ngrx/schematics:selector store/Products
+
+ng generate @ngrx/schematics:action Header
+ng generate @ngrx/schematics:reducer Header --module ../header.module.ts
+ng generate @ngrx/schematics:selector store/header
+
 ```
