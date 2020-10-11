@@ -4,7 +4,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { switchMap, map, debounceTime, delay } from 'rxjs/operators';
 
 import { ProductService } from '../service/product.service';
-import { loadProducts, requestLoadProducts } from './product.actions';
+import { loadProducts, requestLoadProducts, searchProduct } from './product.actions';
 
 @Injectable()
 export class ProductEffects {
@@ -20,5 +20,16 @@ export class ProductEffects {
           map(data => loadProducts({products: data}))
       ))
     )
+  );
+
+  searchProduct$ = createEffect(() =>
+      this.actions$.pipe(
+        ofType(searchProduct),
+        switchMap(action => this.service.search(action.searchQuery)
+        .pipe(
+          delay(1000),
+          map(data => loadProducts({products: data}))
+        ))
+      )
   );
 }

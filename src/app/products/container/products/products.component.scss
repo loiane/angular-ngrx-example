@@ -1,0 +1,29 @@
+.background-none {
+  background-color: transparent!important;
+}
+.shadow-none {
+  box-shadow: none!important;
+}
+.text-md { font-size: 80% !important; }
+.text-xl { font-size: 120% !important; }
+
+.media-grid {
+  text-align: center;
+  overflow: hidden;
+  figure {
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    background: rgba(0,0,0,.38);
+    text-align: left;
+    border-radius: 2px 2px 0 0;
+    text-align: center;
+  }
+
+  figure img {
+    position: relative;
+    display: block;
+    max-width: 100%;
+    border-radius: 2px 2px 0 0;
+  }
+}

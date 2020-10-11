@@ -1,6 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { of, Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged, filter, takeUntil, map } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
+import { Observable, of, Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, filter, map, takeUntil } from 'rxjs/operators';
+
+import * as fromStore from '../store/header.reducer';
+import * as fromSelector from '../store/header.selectors';
+import { searchProduct } from './../../products/store/product.actions';
 
 @Component({
   selector: 'app-header',
@@ -10,10 +15,12 @@ import { debounceTime, distinctUntilChanged, filter, takeUntil, map } from 'rxjs
 export class HeaderComponent implements OnInit, OnDestroy {
 
   searchQuery = '';
-  // cartCount$: Observable<number>;
+  cartCount$: Observable<number>;
   destroySub = new Subject();
 
-  constructor() { }
+  constructor(private store: Store<fromStore.ShoppingCartState>) {
+    this.cartCount$ = this.store.select(fromSelector.cartCount);
+  }
 
   ngOnInit(): void {
   }
@@ -27,7 +34,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
         distinctUntilChanged(),
         takeUntil(this.destroySub)
       )
-      .subscribe(query => console.log(query));
+      .subscribe(query => this.store.dispatch(searchProduct({searchQuery: query})));
   }
 
   ngOnDestroy(): void {

@@ -18,7 +18,7 @@
               <div class="mat-text-primary text-xl">
                 <span> $ {{ product.price }}</span>
               </div>
-              <button mat-icon-button color="accent">
+              <button mat-icon-button color="accent" (click)="addProductCart(product)">
                 <mat-icon>add_shopping_cart</mat-icon>
               </button>
             </div>

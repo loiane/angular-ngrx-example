@@ -3,7 +3,7 @@
     <mat-icon>local_cafe</mat-icon>
   </button>
   <div class="branding">
-    NgRx Cafe
+    DevFest Cafe
   </div>
   <div class="search-bar" fxFlex>
     <form class="search-form">
@@ -15,7 +15,7 @@
   <button mat-icon-button class="ml-xs overflow-visible"
   [matMenuTriggerFor]="cart" mat-icon-button>
     <mat-icon>shopping_cart</mat-icon>
-    <span class="notification-label">{{ "" }}</span>
+    <span class="notification-label" *ngIf="cartCount$ | async as count" >{{ (count > 0) ? count : '' }}</span>
   </button>
   <mat-menu #cart="matMenu" x-position="before">
     <button mat-menu-item [routerLink]="['/checkout']">

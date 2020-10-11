@@ -24,6 +24,10 @@ export class ProductService {
     return of([]);
   }
 
+  search(searchQuery: string): Observable<Product[]> {
+    return of(this.products.filter((value) => value.name.includes(searchQuery)));
+  }
+
   private addProducts(i: number): void {
     this.products.push({
       id: i,
