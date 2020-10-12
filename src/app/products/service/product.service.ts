@@ -1,40 +1,24 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { Product } from './../models/product';
-import { products } from './../store/products.selectors';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  private products: Product[] = [];
-  private readonly isLocal = true;
-
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   load(): Observable<Product[]> {
-    if (this.isLocal) {
-      for (let num = 1; num <= 10; num += 1) {
-        this.addProducts(num);
-      }
-      return of(this.products);
-    }
-    return of([]);
+    return this.http.get<Product[]>('assets/data/products.json');
   }
 
   search(searchQuery: string): Observable<Product[]> {
-    return of(this.products.filter((value) => value.name.includes(searchQuery)));
-  }
-
-  private addProducts(i: number): void {
-    this.products.push({
-      id: i,
-      price: (Math.random() * (0.0 - 10.0) + 10.0).toFixed(2),
-      name: ['Coffee'][Math.floor(Math.random() * 1)],
-      description: ['B & W', 'Grey', 'Black', 'Green', 'Black'][Math.floor(Math.random() * 5)],
-      image: i
-    });
+    return this.load().pipe(
+      map((list: Product[]) => list.filter((value) => value.name.toLowerCase().indexOf(searchQuery.toLowerCase()) > -1))
+    );
   }
 }

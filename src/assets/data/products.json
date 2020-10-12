@@ -1,0 +1,100 @@
+[
+  {
+    "id": 1,
+    "image": 1,
+    "name": "Latte",
+    "price": 1.99,
+    "description": "Coffee + milk"
+  },
+  {
+    "id": 2,
+    "image": 2,
+    "name": "Heart Cappuccino",
+    "price": 1.99,
+    "description": "Cappuccino"
+  },
+  {
+    "id": 3,
+    "image": 3,
+    "name": "Expresso",
+    "price": 1.99,
+    "description": "Strong coffee"
+  },
+  {
+    "id": 4,
+    "image": 4,
+    "name": "Caramel Machiato",
+    "price": 1.99,
+    "description": "Coffee + milk"
+  },
+  {
+    "id": 5,
+    "image": 5,
+    "name": "Regular Coffee",
+    "price": 1.99,
+    "description": "Coffee + milk"
+  },
+  {
+    "id": 6,
+    "image": 6,
+    "name": "Brazilian Ground Coffee",
+    "price": 1.99,
+    "description": "Delicious Coffee"
+  },
+  {
+    "id": 7,
+    "image": 7,
+    "name": "Ice Latte",
+    "price": 1.99,
+    "description": "Coffee + milk"
+  },
+  {
+    "id": 8,
+    "image": 8,
+    "name": "Frapuccino",
+    "price": 1.99,
+    "description": "Coffee + milk"
+  },
+  {
+    "id": 9,
+    "image": 9,
+    "name": "Fancy Coffee",
+    "price": 1.99,
+    "description": "Coffee + milk"
+  },
+  {
+    "id": 10,
+    "image": 10,
+    "name": "Heart Coffee",
+    "price": 1.99,
+    "description": "Coffee + milk"
+  },
+  {
+    "id": 11,
+    "image": 11,
+    "name": "Mocca",
+    "price": 1.99,
+    "description": "Coffee + milk"
+  },
+  {
+    "id": 12,
+    "image": 12,
+    "name": "Java Coffee",
+    "price": 1.99,
+    "description": "Coffee + milk"
+  },
+  {
+    "id": 13,
+    "image": 13,
+    "name": "Caramel Latte",
+    "price": 1.99,
+    "description": "Coffee + milk"
+  },
+  {
+    "id": 14,
+    "image": 14,
+    "name": "Brazilian Coffee 2",
+    "price": 1.99,
+    "description": "Coffee + milk"
+  }
+]
