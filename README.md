@@ -48,4 +48,6 @@ ng generate @ngrx/schematics:action Header
 ng generate @ngrx/schematics:reducer Header --module ../header.module.ts
 ng generate @ngrx/schematics:selector store/header
 
+ng generate @ngrx/schematics:reducer App --module ../app.module.ts
+
 ```
