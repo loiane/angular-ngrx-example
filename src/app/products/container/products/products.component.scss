@@ -1,11 +1,14 @@
 .background-none {
-  background-color: transparent!important;
+  background-color: transparent;
+  box-shadow: none;
 }
-.shadow-none {
-  box-shadow: none!important;
-}
+
 .text-md { font-size: 80% !important; }
 .text-xl { font-size: 120% !important; }
+.pa-1 { padding: 1rem 1rem; }
+.ma-0 { margin: 0 0; }
+.mat-text-primary { color: #2e7d32; }
+.mat-text-secondary { color: #38006b; }
 
 .media-grid {
   text-align: center;
@@ -19,7 +22,6 @@
     border-radius: 2px 2px 0 0;
     text-align: center;
   }
-
   figure img {
     position: relative;
     display: block;

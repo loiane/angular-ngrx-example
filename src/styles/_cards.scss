@@ -1,0 +1,65 @@
+$mat-card-header-size: 40px !default;
+$gutter: 1rem !default;
+$border-radius-base: 2px !default;
+
+body {
+  .mat-card {
+    padding: 0;
+    margin: ($gutter/3);
+    border-radius: $border-radius-base;
+    @include mat-elevation(1);
+    color: rgba(mat-color($foreground, base), 0.87);
+    .mat-card-header {
+      height: auto;
+    }
+    > :first-child {
+      border-radius: $border-radius-base $border-radius-base 0 0;
+    }
+    > :last-child {
+      border-radius: 0 0 $border-radius-base $border-radius-base;
+    }
+    [matCardAvatar] {
+      height: $mat-card-header-size;
+      width: $mat-card-header-size;
+      border-radius: 50%;
+    }
+    [matCardAvatar] {
+      font-size: 40px;
+      line-height: 40px;
+      margin: $gutter 0 0 $gutter;
+    }
+    .mat-card-image {
+      width: 100%;
+      margin: 0;
+    }
+    .mat-card-image:first-child {
+      margin-top: 0;
+      border-radius: $border-radius-base $border-radius-base 0 0;
+    }
+    .mat-card-title {
+      padding-top: $gutter;
+      padding-left: $gutter;
+      padding-right: $gutter;
+      line-height: 1;
+      font-size: 16px;
+      font-weight: 400;
+    }
+    .mat-card-subtitle {
+      padding-left: $gutter;
+      padding-right: $gutter;
+      line-height: 1;
+      font-size: 13px;
+    }
+    .mat-card-subtitle:first-child {
+      padding-top: $gutter;
+    }
+    .mat-card-title:nth-child(2) {
+      margin-top: -24px;
+    }
+    .mat-card-content {
+      padding: $gutter;
+      margin-bottom: 0;
+      position: relative;
+    }
+  }
+}

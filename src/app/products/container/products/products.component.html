@@ -1,11 +1,11 @@
-<mat-sidenav-container class="background-none shadow-none">
+<mat-sidenav-container class="background-none">
   <mat-spinner *ngIf="isLoading$ | async; else productList" style="margin:0 auto;"></mat-spinner>
   <ng-template #productList>
     <div fxLayout="row wrap">
       <div fxFlex.gt-sm="20" fxFlex.gt-xs="33.3333%" fxFlex="100" *ngFor="let product of products$ | async">
         <mat-card class="pa-0">
           <div class="media-grid">
-            <figure style="background-color:white; height: 245px;">
+            <figure style="background-color:white; height: 200px;">
               <img src="assets/images/{{ product.image }}.jpg" height="245px">
             </figure>
           </div>
@@ -13,7 +13,7 @@
             <div fxLayout="row" fxLayoutAlign="center center">
               <div fxFlex>
                 <p class="ma-0">{{ product.name }}</p>
-                <p class="ma-0 pa-0 text-md">{{ product.description }}</p>
+                <p class="ma-0 text-md mat-text-secondary">{{ product.description }}</p>
               </div>
               <div class="mat-text-primary text-xl">
                 <span> $ {{ product.price }}</span>

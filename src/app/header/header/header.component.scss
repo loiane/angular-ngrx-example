@@ -9,8 +9,8 @@ mat-toolbar {
     border-radius: 50%;
     width: 13px;
     height: 13px;
-   // background-color: mat-color($warn);
-   // border: 4px solid mat-color($warn);
+    background-color: #f44336;
+    border: 4px solid #f44336;
     color: white;
     text-align: center;
   }
@@ -57,7 +57,7 @@ mat-toolbar {
           top: 50%;
           left: 10px;
           margin-top: -12px;
-          color: #3f51b5;
+          color: #ffbf00;
         }
       }
     }
