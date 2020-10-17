@@ -4,14 +4,13 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
 import { SharedModule } from './../shared/shared.module';
-import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductsComponent } from './container/products/products.component';
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductEffects } from './store/product.effects';
 import * as fromProduct from './store/product.reducer';
 
 @NgModule({
-  declarations: [ProductsComponent, ProductListComponent],
+  declarations: [ProductsComponent],
   imports: [
     CommonModule,
     ProductsRoutingModule,
